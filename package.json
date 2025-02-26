@@ -22,17 +22,22 @@
         "title": "ZestCode: Build"
       },
       {
-                "command": "zestcode.run",
+        "command": "zestcode.run",
         "title": "ZestCode: Run"
+      },
+      {
+        "command": "zestcode.upload",
+        "title": "ZestCode: Upload Code"
+      },
+      {
+        "command": "zestcode.newproject",
+        "title": "ZestCode: Create New Project"
+      },
+      {
+        "command": "zestcode.openterminal",
+        "title": "ZestCode: Open Terminal"
       }
-    ],
-    "menus": {
-      "view/title": [
-        {
-          "command": "zestcode.helloWorld"
-        }
-      ]
-    }
+    ]
   },
 
 

@@ -37,9 +37,6 @@ module.exports = __toCommonJS(extension_exports);
 var vscode = __toESM(require("vscode"));
 function activate(context) {
   console.log('Congratulations, your extension "zestcode" is now active!');
-  const helloWorld = vscode.commands.registerCommand("zestcode.helloWorld", () => {
-    vscode.window.showInformationMessage("Hello World from ZestCode!!");
-  });
   const build = vscode.commands.registerCommand(
     "zestcode.build",
     () => {
@@ -52,7 +49,25 @@ function activate(context) {
       vscode.window.showInformationMessage("Running the project...");
     }
   );
-  context.subscriptions.push(helloWorld, build, run);
+  const upload = vscode.commands.registerCommand(
+    "zestcode.upload",
+    () => {
+      vscode.window.showInformationMessage("uploading the project...");
+    }
+  );
+  const newproject = vscode.commands.registerCommand(
+    "zestcode.newproject",
+    () => {
+      vscode.window.showInformationMessage("creating new project...");
+    }
+  );
+  const openterminal = vscode.commands.registerCommand(
+    "zestcode.openterminal",
+    () => {
+      vscode.window.showInformationMessage("opening terminal...");
+    }
+  );
+  context.subscriptions.push(build, run, upload, newproject, openterminal);
 }
 function deactivate() {
 }

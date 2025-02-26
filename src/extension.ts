@@ -13,11 +13,7 @@ export function activate(context: vscode.ExtensionContext) {
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
-	const helloWorld = vscode.commands.registerCommand('zestcode.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from ZestCode!!');
-	});
+
 	const build = vscode.commands.registerCommand('zestcode.build', () => {
 		vscode.window.showInformationMessage('Building the project...');
 	}
@@ -26,7 +22,19 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.window.showInformationMessage('Running the project...');
 	}
 	);
-	context.subscriptions.push(helloWorld,build,run);
+	const upload = vscode.commands.registerCommand('zestcode.upload', () => {
+		vscode.window.showInformationMessage('uploading the project...');
+	}
+	);
+	const newproject = vscode.commands.registerCommand('zestcode.newproject', () => {
+		vscode.window.showInformationMessage('creating new project...');
+	}
+	);	
+	const openterminal = vscode.commands.registerCommand('zestcode.openterminal', () => {
+		vscode.window.showInformationMessage('opening terminal...');
+	}
+	);
+	context.subscriptions.push(build,run,upload,newproject, openterminal);
 }
 
 // This method is called when your extension is deactivated
