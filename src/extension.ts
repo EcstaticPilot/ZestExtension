@@ -1,7 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
-
+import * as path from 'path';
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -44,12 +44,11 @@ export function activate(context: vscode.ExtensionContext) {
 					existingTerminals[0].show();
 				} else {
 					// If no terminal exists, create a new one
-					
+
 					const zestTerminal = vscode.window.createTerminal({
 						name: 'ZestCode Terminal',
-						iconPath: new vscode.ThemeIcon('')
+						iconPath: vscode.Uri.file(path.join(context.extensionPath, 'src', 'icon.png'))
 					});
-					
 					zestTerminal.show();
 					
 				}

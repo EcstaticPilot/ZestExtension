@@ -48,7 +48,16 @@
            "color": "#00ff00",
            "icon": "src/icon.png"
          }
-        ]
+        ],
+    "icons": {
+      "my-icon-id": {
+        "description": "my icon",
+        "default": {
+          "fontPath": "myiconfont.woff",
+          "fontCharacter": "\\E001"
+        }
+      }
+    }
   },
 
 

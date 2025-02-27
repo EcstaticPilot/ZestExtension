@@ -35,6 +35,7 @@ __export(extension_exports, {
 });
 module.exports = __toCommonJS(extension_exports);
 var vscode = __toESM(require("vscode"));
+var path = __toESM(require("path"));
 function activate(context) {
   console.log('Congratulations, your extension "zestcode" is now active!');
   const build = vscode.commands.registerCommand(
@@ -71,7 +72,7 @@ function activate(context) {
       } else {
         const zestTerminal = vscode.window.createTerminal({
           name: "ZestCode Terminal",
-          iconPath: new vscode.ThemeIcon("")
+          iconPath: vscode.Uri.file(path.join(context.extensionPath, "src", "icon.png"))
         });
         zestTerminal.show();
       }
