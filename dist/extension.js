@@ -65,6 +65,13 @@ function activate(context) {
     "zestcode.openterminal",
     () => {
       vscode.window.showInformationMessage("opening terminal...");
+      const existingTerminals = vscode.window.terminals.filter((term) => term.name === "ZestCode Terminal");
+      if (existingTerminals.length > 0) {
+        existingTerminals[0].show();
+      } else {
+        const zestTerminal = vscode.window.createTerminal("ZestCode Terminal");
+        zestTerminal.show();
+      }
     }
   );
   context.subscriptions.push(build, run, upload, newproject, openterminal);
