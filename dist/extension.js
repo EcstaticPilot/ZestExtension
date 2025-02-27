@@ -65,13 +65,13 @@ function activate(context) {
   const openterminal = vscode.commands.registerCommand(
     "zestcode.openterminal",
     () => {
-      vscode.window.showInformationMessage("opening terminal...");
-      const existingTerminals = vscode.window.terminals.filter((term) => term.name === "ZestCode Terminal");
+      vscode.window.showInformationMessage("opening ZestTerminal...");
+      const existingTerminals = vscode.window.terminals.filter((term) => term.name === "ZestTerminal");
       if (existingTerminals.length > 0) {
         existingTerminals[0].show();
       } else {
         const zestTerminal = vscode.window.createTerminal({
-          name: "ZestCode Terminal",
+          name: "ZestTerminal",
           iconPath: vscode.Uri.file(path.join(context.extensionPath, "src", "icon.png"))
         });
         zestTerminal.show();

@@ -34,10 +34,10 @@ export function activate(context: vscode.ExtensionContext) {
 	);	
 
 	const openterminal = vscode.commands.registerCommand('zestcode.openterminal', () => {
-		vscode.window.showInformationMessage('opening terminal...');
+		vscode.window.showInformationMessage('opening ZestTerminal...');
 	    // Get all terminals with the name "ZestCode Terminal"
 		const existingTerminals = vscode.window.terminals.filter(term => 
-			term.name === 'ZestCode Terminal');
+			term.name === 'ZestTerminal');
 			
 				if (existingTerminals.length > 0) {
 					// If there is an existing terminal, show it instead of creating a new one
@@ -46,7 +46,7 @@ export function activate(context: vscode.ExtensionContext) {
 					// If no terminal exists, create a new one
 
 					const zestTerminal = vscode.window.createTerminal({
-						name: 'ZestCode Terminal',
+						name: 'ZestTerminal',
 						iconPath: vscode.Uri.file(path.join(context.extensionPath, 'src', 'icon.png'))
 					});
 					zestTerminal.show();
