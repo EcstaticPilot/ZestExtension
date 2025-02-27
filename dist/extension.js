@@ -69,7 +69,10 @@ function activate(context) {
       if (existingTerminals.length > 0) {
         existingTerminals[0].show();
       } else {
-        const zestTerminal = vscode.window.createTerminal("ZestCode Terminal");
+        const zestTerminal = vscode.window.createTerminal({
+          name: "ZestCode Terminal",
+          iconPath: new vscode.ThemeIcon("")
+        });
         zestTerminal.show();
       }
     }

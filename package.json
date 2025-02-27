@@ -2,6 +2,7 @@
   "name": "zestcode",
   "displayName": "ZestCode",
   "description": "An open-source C++ framework for the VEX V5",
+  "icon": "src/icon.png",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.97.0"
@@ -37,7 +38,17 @@
         "command": "zestcode.openterminal",
         "title": "ZestCode: Open Terminal"
       }
-    ]
+      
+      
+      
+    ],
+    "terminalProfiles": [
+         {
+           "name": "ZestTerminal profile",
+           "color": "#00ff00",
+           "icon": "src/icon.png"
+         }
+        ]
   },
 
 

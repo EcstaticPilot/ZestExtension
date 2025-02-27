@@ -24,15 +24,17 @@ export function activate(context: vscode.ExtensionContext) {
 	);
 	const upload = vscode.commands.registerCommand('zestcode.upload', () => {
 		vscode.window.showInformationMessage('uploading the project...');
+		
 	}
 	);
 	const newproject = vscode.commands.registerCommand('zestcode.newproject', () => {
 		vscode.window.showInformationMessage('creating new project...');
+		
 	}
 	);	
+
 	const openterminal = vscode.commands.registerCommand('zestcode.openterminal', () => {
 		vscode.window.showInformationMessage('opening terminal...');
-		
 	    // Get all terminals with the name "ZestCode Terminal"
 		const existingTerminals = vscode.window.terminals.filter(term => 
 			term.name === 'ZestCode Terminal');
@@ -42,8 +44,14 @@ export function activate(context: vscode.ExtensionContext) {
 					existingTerminals[0].show();
 				} else {
 					// If no terminal exists, create a new one
-					const zestTerminal = vscode.window.createTerminal("ZestCode Terminal");
+					
+					const zestTerminal = vscode.window.createTerminal({
+						name: 'ZestCode Terminal',
+						iconPath: new vscode.ThemeIcon('')
+					});
+					
 					zestTerminal.show();
+					
 				}
 	}
 	);
