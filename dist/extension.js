@@ -35,6 +35,7 @@ __export(extension_exports, {
 });
 module.exports = __toCommonJS(extension_exports);
 var vscode = __toESM(require("vscode"));
+var path = __toESM(require("path"));
 function activate(context) {
   console.log('Congratulations, your extension "zestcode" is now active!');
   const build = vscode.commands.registerCommand(
@@ -64,7 +65,17 @@ function activate(context) {
   const openterminal = vscode.commands.registerCommand(
     "zestcode.openterminal",
     () => {
-      vscode.window.showInformationMessage("opening terminal...");
+      vscode.window.showInformationMessage("opening ZestTerminal...");
+      const existingTerminals = vscode.window.terminals.filter((term) => term.name === "ZestTerminal");
+      if (existingTerminals.length > 0) {
+        existingTerminals[0].show();
+      } else {
+        const zestTerminal = vscode.window.createTerminal({
+          name: "ZestTerminal",
+          iconPath: vscode.Uri.file(path.join(context.extensionPath, "src", "icon.png"))
+        });
+        zestTerminal.show();
+      }
     }
   );
   context.subscriptions.push(build, run, upload, newproject, openterminal);
